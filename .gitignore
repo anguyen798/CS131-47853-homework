@@ -3,6 +3,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Homework in .odb and .pdf format
+*.odb
+*.pdf
+
 # C extensions
 *.so
 
