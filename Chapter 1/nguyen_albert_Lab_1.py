@@ -28,12 +28,12 @@ print("and washed the spider out")
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Lab 1c
-'''
+"""
 Write an algorithm that finds and prints the largest number from among 15 non-negative numbers entered by the user.
 Rearrange the following lines to produce the algorithm that accomplished this task.
-'''
+"""
 
-'''
+"""
 Repeat 15 times:
 If userNum > largestNum:
 Prompt user for next number
@@ -41,26 +41,26 @@ largestNum = 0
 largestNum = userNum
 Print largestNum
 userNum = Input number from user
-'''
+"""
 # Rearranged:
-'''
+"""
 largestNum = 0
 userNum = Input number from user
 If userNum > largestNum:
 largestNum = userNum
 Print largestNum
 Prompt user for next number
-'''
+"""
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Lab 1d
-'''
+"""
 Problem Statement:
 You have the choice of buying two cars. One is more fuel efficient than the other, but also more expensive.
 You know the price and fuel efficiency (in miles per gallon, mpg) of both cars.
 You plan to keep the car for ten years.
 Which car is the better deal?
 Work with a partner to write this algorithm.
-'''
+"""
 # default CONSTANTS and variables for 1d, variables changeable if manual_variables_1d=True
 MILES_PER_YEAR = 15000
 YEARS = 10
