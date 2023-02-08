@@ -3,9 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# Homework in .odb and .pdf format
-*.odb
-*.pdf
+# Idea files for Jetbrains
+.idea
+.DS_Store
 
 # C extensions
 *.so
