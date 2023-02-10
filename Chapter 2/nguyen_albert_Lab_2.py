@@ -4,7 +4,8 @@ import math
 # Lab 2a
 
 
-def lab_2a_print():  # To keep CONSTANTS and variables in local scope to not affect output of lab_2(a-e) code
+def lab_2a_print(cansPerPack=6, litersPerBottle=2):
+    # To keep CONSTANTS and variables in local scope to not affect output of lab_2(a-e) code
     """
     Soft drinks are sold in cans and bottles. A store offers a six-pack of
     12-ounce cans for the same price as a two-liter bottle. \b
@@ -21,19 +22,33 @@ def lab_2a_print():  # To keep CONSTANTS and variables in local scope to not aff
     Your program should demonstrate the use of variables and constants.
     """
     # _Prefix before CONSTANTS for PyCharm and VSCode lowercase naming warnings
-    _CANS_PER_PACK = int(6)
+    # function variables snake_case not camelCase  https://peps.python.org/pep-0008/#function-and-variable-names
     _OUNCES_PER_CAN = int(12)
-    _OUNCES_PER_PACK = _CANS_PER_PACK * _OUNCES_PER_CAN
+    _OUNCES_PER_PACK = cansPerPack * _OUNCES_PER_CAN
     _OUNCES_PER_LITER = 33.814
-    _OUNCES_PER_BOTTLE_2LITER = 2 * _OUNCES_PER_LITER
-    print("The ounces in a six-pack of soda = %.2f" % _OUNCES_PER_PACK)
-    print("The ounces in a two-litter bottle of soda = %.2f" % _OUNCES_PER_BOTTLE_2LITER)
+    _OUNCES_PER_BOTTLE = litersPerBottle * _OUNCES_PER_LITER
+
+    print("A", cansPerPack, "-pack of soda has %.2f" % _OUNCES_PER_PACK, "ounces")
+    print("A", litersPerBottle, "-liter bottle of soda has %.2f" % _OUNCES_PER_BOTTLE, "ounces")
+    if _OUNCES_PER_PACK > _OUNCES_PER_BOTTLE:
+        print("You should buy the", cansPerPack, "-pack of soda because %.2f" % _OUNCES_PER_PACK,
+              "ounces > the", litersPerBottle, "-liter bottle of soda with %.2f" % _OUNCES_PER_BOTTLE, "ounces")
+    elif _OUNCES_PER_PACK < _OUNCES_PER_BOTTLE:
+        print("You should buy the", litersPerBottle, "-liter of soda because %.2f" % _OUNCES_PER_BOTTLE,
+              "ounces > the", cansPerPack, "-pack of soda  with %.2f" % _OUNCES_PER_PACK, "ounces")
 
 
 print("*" * 100)
 print("\033[4mLAB 2A\033[0m")
+print("-" * 50)
+print("*2a with Default values*")
 lab_2a_print()
+print("-" * 50)
+print("*2a with Custom values*")
+lab_2a_print(30, 5)
+print("-" * 50)
 print(lab_2a_print.__doc__)
+
 
 # **************************************************
 # Lab 2b
@@ -110,7 +125,7 @@ def lab_2c_print():  # to keep x, y, a, b, c variables in local scope to not aff
     print("For x =", x, ", y =", y, ". The square root of x + y =", _LAB_2C_SQRT,  # normal format
           "or %.2f" % _LAB_2C_SQRT)  # %f format
     print("For a =", a, ", b =", b, ", c =", c,
-          ". The quadratic formula for (-b + sqrt(b^2 - 4ac)/2a =",  _LAB_2C_QUADRATIC,
+          ". The quadratic formula for (-b + sqrt(b^2 - 4ac)/2a =", _LAB_2C_QUADRATIC,
           "or %-10f" % _LAB_2C_QUADRATIC,  # %f format but with left-justify and without .2f to show un-rounded value
           "or", f'{_LAB_2C_QUADRATIC:.2f}')  # f-string format
     print("For x =", x, ", y =", y, ". The formula x ^ (y + 7) =", f'{_LAB_2C_EXPONENT:,}')  # f-string format
