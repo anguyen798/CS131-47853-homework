@@ -6,6 +6,7 @@ __pycache__/
 # Idea files for Jetbrains
 .idea
 .DS_Store
+.rst
 
 # C extensions
 *.so
