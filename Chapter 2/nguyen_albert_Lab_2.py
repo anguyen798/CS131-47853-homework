@@ -193,7 +193,6 @@ def lab_2d_print(middleName: bool = False):
     :return: None
     """
     firstName = str(input("Please enter your first name in using lowercase letters: "))
-    print(firstName.isalpha())
     while firstName.islower() is False or firstName.isalpha() is False:  # OR conditional to check format
         print("Your first name was entered as %s. This format is not in lowercase or is a number" % firstName)
         firstName = input("Please enter your first name in using lowercase letters: ")
