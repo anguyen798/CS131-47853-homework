@@ -1,5 +1,5 @@
 # =============================================================================
-# LAB 2 Import and Headings
+# LAB 2 Import And Headings
 # =============================================================================
 import math
 # Docstrings lines for current exercises are minimized in screenshots and enclosed in double quotes, output still shown
