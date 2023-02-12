@@ -192,16 +192,20 @@ def lab_2d_print(middleName: bool = False):
     :param middleName: Boolean; default is False; True to enable input of middle name
     :return: None
     """
-    firstName = input("Please enter your first name in using lowercase letters: ")
-    while firstName.islower() is False:
+    firstName = str(input("Please enter your first name in using lowercase letters: "))
+    print(firstName.isalpha())
+    while firstName.islower() is False or firstName.isalpha() is False:  # OR conditional to check format
         print("Your first name was entered as %s. This format is not in lowercase or is a number" % firstName)
         firstName = input("Please enter your first name in using lowercase letters: ")
     if middleName:  # optional function parameter to enable middle name input, default is middleName=False
         middleName = input("Please enter your middle name in using lowercase letters: ")
-        while middleName.islower() is False:
+        while middleName.islower() is False or middleName.isalpha() is False:
             print("Your middle name was entered as %s. This format is not in lowercase or is a number" % middleName)
             middleName = input("Please enter your middle name in using lowercase letters: ")
     lastName = input("Please enter your last name in using lowercase letters: ")
+    while lastName.islower() is False or lastName.isalpha() is False:
+        print("Your last name was entered as %s. This format is not in lowercase or is a number" % lastName)
+        lastName = input("Please enter your last name in using lowercase letters: ")
     try:
         fullName = "%s %s %s" % (firstName.title(), middleName.title(), lastName.title())
         initials = "%s %s %s" % (firstName[0].upper(), middleName[0].upper(), lastName[0].upper())
@@ -209,9 +213,6 @@ def lab_2d_print(middleName: bool = False):
         fullName = "%s %s" % (firstName.title(), lastName.title())
         initials = "%s %s" % (firstName[0].upper(), lastName[0].upper())
         # initials = "{0}{1}".format(firstName[0].upper(), lastName[0].upper())  #using .format instead of %s specifier
-    while lastName.islower() is False:
-        print("Your last name was entered as %s. This format is not in lowercase or is a number" % lastName)
-        lastName = input("Please enter your last name in using lowercase letters: ")
     while True:
         try:  # allows input of invalid age in string format without crashing due to value error, loop until valid value
             ageString = input("Please enter your age: ")  # allows invalid value to be shown in ValueError print stmt
