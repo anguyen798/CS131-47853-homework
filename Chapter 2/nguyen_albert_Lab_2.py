@@ -1,5 +1,10 @@
+# =============================================================================
+# LAB 2 Import and Headings
+# =============================================================================
 import math
 # Docstrings lines for current exercises are minimized in screenshots and enclosed in double quotes, output still shown
+# Functions to keep CONSTANTS and variables in local scope to not affect output of lab_2(a-e) code
+# _Prefix before CONSTANTS for PyCharm and VSCode lowercase naming warnings
 
 
 def lab_2_heading(letter: str = ""):
@@ -19,7 +24,6 @@ def lab_2_heading(letter: str = ""):
 
 
 def lab_2a_print(cansPerPack: int = 6, litersPerBottle: int = 2):
-    # To keep CONSTANTS and variables in local scope to not affect output of lab_2(a-e) code
     r"""
     Soft drinks are sold in cans and bottles. A store offers a six-pack of
     12-ounce cans for the same price as a two-liter bottle.
@@ -38,7 +42,6 @@ def lab_2a_print(cansPerPack: int = 6, litersPerBottle: int = 2):
     :param litersPerBottle: lab_2a_print(cansPerPack:int, \ **litersPerBottle**\:int)
     :return:
     """
-    # _Prefix before CONSTANTS for PyCharm and VSCode lowercase naming warnings
     _OUNCES_PER_CAN = int(12)
     _OUNCES_PER_PACK = cansPerPack * _OUNCES_PER_CAN
     _OUNCES_PER_LITER = 33.814
@@ -67,15 +70,12 @@ lab_2_heading(letter="A")
 lab_2a_print()
 lab_2a_print(30, 5)
 print(lab_2a_print.__doc__)
-
-
 # =============================================================================
 # LAB 2B
 # =============================================================================
 
 
 def lab_2b_print(x: int, y: int):
-    # To keep CONSTANTS and variables in local scope to not affect output of lab_2(a-e) code
     r"""
 Given two integers, write a program that prints
 -The sum
@@ -101,7 +101,6 @@ Test your program with the following integers:
     value for equations: x + **y**; x - **y**; x * **y**; (x + **y**)/2; abs(x - **y**); max(x,**y**); min(x, **y**)
     :return: None
     """
-    # _Prefix before CONSTANTS for PyCharm and VSCode lowercase naming warnings
     _LAB_2B_SUM = x + y
     _LAB_2B_DIFFERENCE = x - y
     _LAB_2B_PRODUCT = x * y
@@ -126,8 +125,6 @@ lab_2b_print(x=-2, y=0)
 lab_2b_print(x=-5, y=-1)
 lab_2b_print(x=-4, y=4)
 print(lab_2b_print.__doc__)
-
-
 # lab_2b_print(x=int(input("Enter x = ")), y=int(input("Enter y = ")))  # manual input example
 # =============================================================================
 # LAB 2C
@@ -135,8 +132,6 @@ print(lab_2b_print.__doc__)
 
 
 def lab_2c_print(x: int = 10, y: int = 6, a: int = 2, b: int = 8, c: int = 1):
-    # to keep x, y, a, b, c variables in local scope to not affect output of lab_2(a-e) code
-    # Docstring for current exercise in enclosed in single quotes below
     r"""
     Find and print the result of the following 3 equations:
     x=10
@@ -151,8 +146,6 @@ def lab_2c_print(x: int = 10, y: int = 6, a: int = 2, b: int = 8, c: int = 1):
     :param c: value for equation: (-b + sqrt(b^2 - 4a\ **c**\)/2a
     :return:
     """
-    # _Prefix before CONSTANTS for PyCharm and VSCode lowercase naming warnings
-    # x, y, a, b, c = 10, 6, 2, 8, 1  # functionless method - assign multiple variables on one line
     _LAB_2C_SQRT = math.sqrt(x + y)
     _LAB_2C_QUADRATIC = -b + math.sqrt(b ** 2 - 4 * a * c) / (2 * a)
     _LAB_2C_EXPONENT = x ** (y + 7)
@@ -176,8 +169,6 @@ lab_2_heading(letter="C")
 lab_2c_print()
 lab_2c_print(2, 10, 10, 20, 4)
 print(lab_2c_print.__doc__)
-
-
 # =============================================================================
 # LAB 2D
 # =============================================================================
@@ -248,8 +239,6 @@ lab_2_heading(letter="D")
 lab_2d_print()
 print("-" * 50)
 print(lab_2d_print.__doc__)
-
-
 # =============================================================================
 # LAB 2E
 # =============================================================================
