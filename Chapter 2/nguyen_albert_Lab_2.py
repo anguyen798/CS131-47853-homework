@@ -1,7 +1,5 @@
 import math
-
-
-# Docstrings for current exercises in enclosed in double quotes
+# Docstrings lines for current exercises are minimized in screenshots and enclosed in double quotes, output still shown
 
 
 def lab_2_heading(letter: str = ""):
@@ -15,8 +13,9 @@ def lab_2_heading(letter: str = ""):
     print("-" * 50)
 
 
-# **************************************************
-# Lab 2a
+# =============================================================================
+# LAB 2A
+# =============================================================================
 
 
 def lab_2a_print(cansPerPack: int = 6, litersPerBottle: int = 2):
@@ -27,7 +26,7 @@ def lab_2a_print(cansPerPack: int = 6, litersPerBottle: int = 2):
     Which should you buy? (1 liter is 33.814 ounces)
 
     You will need the following variables:
-    List of variables           Type of Number
+    List of variables           Type of #
     Number of cans per pack     Whole number
     Ounces per can              Whole number
     Ounces per bottle           Number with fraction
@@ -70,8 +69,9 @@ lab_2a_print(30, 5)
 print(lab_2a_print.__doc__)
 
 
-# **************************************************
-# Lab 2b
+# =============================================================================
+# LAB 2B
+# =============================================================================
 
 
 def lab_2b_print(x: int, y: int):
@@ -129,8 +129,9 @@ print(lab_2b_print.__doc__)
 
 
 # lab_2b_print(x=int(input("Enter x = ")), y=int(input("Enter y = ")))  # manual input example
-# **************************************************
-# Lab 2c
+# =============================================================================
+# LAB 2C
+# =============================================================================
 
 
 def lab_2c_print(x: int = 10, y: int = 6, a: int = 2, b: int = 8, c: int = 1):
@@ -138,10 +139,10 @@ def lab_2c_print(x: int = 10, y: int = 6, a: int = 2, b: int = 8, c: int = 1):
     # Docstring for current exercise in enclosed in single quotes below
     r"""
     Find and print the result of the following 3 equations:
-    x=10 \b
-    y=6 \b
-    a=2 \b
-    b=8 \b
+    x=10
+    y=6
+    a=2
+    b=8
     c=1
     :param x: value for equations: sqrt(**x** - y) and \ **x**\^(y + 7)
     :param y: value for equations: sqrt(x - **y**) and x^(\ **y**\ + 7)
@@ -177,54 +178,91 @@ lab_2c_print(2, 10, 10, 20, 4)
 print(lab_2c_print.__doc__)
 
 
-# **************************************************
-# Lab 2d
+# =============================================================================
+# LAB 2D
+# =============================================================================
 
 
-def lab_2d_print():
+def lab_2d_print(middleName: bool = False):
     r"""
     Prompt the user to enter their first name using only lowercase letters and store it into a variable,
-    then prompt the user to enter their last name (also in all lowercase) and store it. \b
-    Prompt the user to enter their age and convert it to an integer and store it. \b
-    Concatenate your first and last name and store it in a third variable. \n
+    then prompt the user to enter their last name (also in all lowercase) and store it.
+    Prompt the user to enter their age and convert it to an integer and store it.
+    Concatenate your first and last name and store it in a third variable.
     Print the following:
-    -a line of 50 stars (String repetition) \b
-    -your full name by incorporating a format specifier so that your name is left-justified and uses 25 spaces \b
-    -your full name in all caps using a string method \b
-    -your initials (using the square brackets ) \b
-    -the length of your name (sample statement:  "the length of my full name is 12") \b
-    -49ers (convert the number 49 to a string) \b
-    -print how old you will be in ten years by adding \b
-    -a line of 50 +'s \b
+    -a line of 50 stars (String repetition)
+    -your full name by incorporating a format specifier so that your name is left-justified and uses 25 spaces
+    -your full name in all caps using a string method
+    -your initials (using the square brackets )
+    -the length of your name (sample statement:  "the length of my full name is 12")
+    -49ers (convert the number 49 to a string)
+    -print how old you will be in ten years by adding
+    -a line of 50 +'s
+    :param middleName: Boolean; default is False; True to enable input of middle name
     :return: None
     """
-    # firstName = input("Please enter your first name in using lowercase letters: ").lower()
-    # lastName = input("Please enter your last name in using lowercase letters: ").lower()
-    # age = int(input("Please enter your age: "))
-    # firstAndLastName = firstName + lastName
-    # firstNameInitial = firstName[0].upper()
-    # lastNameInitial = lastName[0].upper()
-    # print("*" * 50)
-    # # print("%s" % (25, "test"))
-    # print(firstAndLastName)
-    # print(age)
-    # print("-" * 50)
+    firstName = input("Please enter your first name in using lowercase letters: ")
+    while firstName.islower() is False:
+        print("Your first name was entered as %s. This format is not in lowercase or is a number" % firstName)
+        firstName = input("Please enter your first name in using lowercase letters: ")
+    if middleName:  # optional function parameter to enable middle name input, default is middleName=False
+        middleName = input("Please enter your middle name in using lowercase letters: ")
+        while middleName.islower() is False:
+            print("Your middle name was entered as %s. This format is not in lowercase or is a number" % middleName)
+            middleName = input("Please enter your middle name in using lowercase letters: ")
+    lastName = input("Please enter your last name in using lowercase letters: ")
+    try:
+        fullName = "%s %s %s" % (firstName.title(), middleName.title(), lastName.title())
+        initials = "%s %s %s" % (firstName[0].upper(), middleName[0].upper(), lastName[0].upper())
+    except AttributeError:
+        fullName = "%s %s" % (firstName.title(), lastName.title())
+        initials = "%s %s" % (firstName[0].upper(), lastName[0].upper())
+        # initials = "{0}{1}".format(firstName[0].upper(), lastName[0].upper())  #using .format instead of %s specifier
+    while lastName.islower() is False:
+        print("Your last name was entered as %s. This format is not in lowercase or is a number" % lastName)
+        lastName = input("Please enter your last name in using lowercase letters: ")
+    while True:
+        try:  # allows input of invalid age in string format without crashing due to value error, loop until valid value
+            ageString = input("Please enter your age: ")  # allows invalid value to be shown in ValueError print stmt
+            age = int(ageString)
+            if isinstance(age, int):  # break loop only if variable age is an integer
+                break
+        except ValueError:
+            print("Your age was entered as %s. This format is not an integer" % ageString)
+    print("*" * 50)
+    print("%25s" % fullName.title())
+    print(fullName.upper())
+    print("%s" % initials)
+    print("The length of my name is %s letters (without spaces) and %s letters with spaces"
+          % (len(fullName.replace(" ", "")), len(fullName)))  # 2nd line due to PEP8 over character limit
+    # print(f'The length of my full name is {len(fullName)}')  # length of name in f-string format
+    print("%sers" % 49)
+    # print("{0}ers".format(49))  # using .format instead of %s specifier
+    print("My age in 10 years is %s" % (age + 10))
+    if age > 122:
+        print("Your age is %s. Are you are a vampire?" % age)
+    print(" " * 50 + "'s")
 
 
 lab_2_heading(letter="D")
 lab_2d_print()
+print("-" * 50)
 print(lab_2d_print.__doc__)
+
+
+# =============================================================================
+# LAB 2E
+# =============================================================================
 
 
 def lab_2e_print(phoneNumber=0000000000):
     r"""
     The following pseudocode describes how to turn a string containing a ten-digit phone number (such as "4155551212")
-    into a more readable string with parentheses and dashes, like this: "(415) 555-1212". \b
-
-    “Take the string consisting of the first three characters and concat with "(" and ") ". This is the area code. \b
+    into a more readable string with parentheses and dashes, like this: "(415) 555-1212".
+    “Take the string consisting of the first three characters and concat with "(" and ") ". This is the area code.
 
     Concatenate the area code, the string consisting of the next three characters, a hyphen, and the string
-    consisting of the last four characters. This is the formatted number.” \b
+    consisting of the last four characters. This is the formatted number.”
 
     Sample Output:
     The phone number is: 8884554415
