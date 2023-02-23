@@ -1,5 +1,5 @@
 # Lab 4a
-n = 20
+n = 34
 i = 1
 while i < n:
     if i % 5 == 0 or i % 10 == 0:
@@ -8,19 +8,16 @@ while i < n:
 
 # Lab 4b
 string = input("Enter a string: ")
-vowels = "aeiouAEIOU"
-count = 0
-i = 0
-while i < len(string):
-    if string[i] in vowels:
-        count += 1
-    i += 1
-if count == 0:
-    print("The string has 0 vowel.")
-elif count == 1:
-    print("The string has 1 vowel.")
-else:
-    print(f"The string has {count} vowels.")
+def vowel_count(para1=string):
+    vowelCounter = 0
+    stringArrayNum = 0
+    vowels = "aeiouAEIOU"
+    while stringArrayNum < len(string):
+        if string[stringArrayNum] in vowels:
+            vowelCounter += 1
+        stringArrayNum += 1
+    print("The string has %s vowels." % vowelCounter)
+vowel_count(string)
 
 # Lab 4c
 grades = []
