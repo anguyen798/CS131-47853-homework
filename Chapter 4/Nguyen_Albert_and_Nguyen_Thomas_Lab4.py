@@ -16,6 +16,7 @@ n = 20  # variable n or given number is the upper limit which loop stops at once
 print_multiples_of_5_10(n)  # With n = 20
 print_multiples_of_5_10(30)  # With n = 30
 
+
 # Lab 4b
 
 
@@ -42,7 +43,6 @@ print("The string \"%s\" has %d vowels." % (string, vowelCounter))  # format vow
 string = "Thomas"
 vowelCounter = vowel_count(string)  # call function, must explicitly pass variable "string" as parameter
 print(f"The string \"{string}\" has {vowelCounter} vowels.")  # using f string, \ to escape the double quotes
-
 
 # Lab 4c
 grades = []
@@ -74,20 +74,31 @@ else:
     print(f"The maximum grade is {max_grade:.2f}")
     print(f"The minimum grade is {min_grade:.2f}")
 
+
 # Lab 4d
-# Constants
-INTEREST_RATE = 0.05
-INITIAL_BALANCE = 10000.00
 
-# Prompt user for number of years
+
+def compound_interest(numYears):  # calculate and print balance for each year
+    INTEREST_RATE = 0.05
+    INITIAL_BALANCE = 10000.00
+    print("For Initial Balance of $%10.2f at %.2f%%, for %d years, the balance of each year is as follows: "
+          % (INITIAL_BALANCE, INTEREST_RATE * 100, numYears))  # multi-line print statement due to line length
+    balance = INITIAL_BALANCE  #
+    currentYear = 0
+    while currentYear < numYears:  #
+        balance = balance + balance * INTEREST_RATE
+        currentYear = currentYear + 1  # start printing at year 1
+        print("For Year: %4d, Balance is $%10.2f" % (currentYear, balance))  # print balance for each year
+    print("*" * 30)  # Seperator between function calls
+    # Using For loop:
+    # for currentYear in range(1, numYears + 1):
+    #     balance = balance + balance * INTEREST_RATE
+    #     print("For Year: %4d, Balance is $%10.2f" % (currentYear, balance))
+
+
 numYears = int(input("Enter number of years: "))
-
-# Calculate and display incrementing balance for each year
-balance = INITIAL_BALANCE
-for year in range(1, numYears + 1):
-    balance += balance * INTEREST_RATE
-    print("Year: {:4} Balance: {:10.2f}".format(year, balance))
-
+compound_interest(numYears)  # Using input(), example: 5 years
+compound_interest(2)  # 2 years
 
 # Lab 4e
 # Nested loop to print three rows and four columns of brackets
@@ -101,7 +112,7 @@ n = int(input("Enter n: "))
 
 # Print the header
 print("   |", end="")
-for i in range(1, n+1):
+for i in range(1, n + 1):
     print("{0:5d}".format(i), end="")
 print()
 
@@ -109,10 +120,10 @@ print()
 print("-------------------------------")
 
 # Print the table
-for i in range(1, n+1):
+for i in range(1, n + 1):
     print("{0:3d}|".format(i), end="")
-    for j in range(1, n+1):
-        print("{0:5d}".format(i*j), end="")
+    for j in range(1, n + 1):
+        print("{0:5d}".format(i * j), end="")
     print()
 
 # Lab 4g
@@ -133,7 +144,7 @@ for char in string:
     else:
         symbol_count += 1
 
-print(f"Total counts of Chars = {lowercase_count+uppercase_count}")
+print(f"Total counts of Chars = {lowercase_count + uppercase_count}")
 print(f"Total counts of Digits = {digit_count}")
 print(f"Total counts of Symbol = {symbol_count}")
 
