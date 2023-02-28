@@ -1,7 +1,5 @@
 # Due to PEP8, 2 blank lines at start and end of functions in labs below, also variable in functions in camelCase
 # Lab 4a
-
-
 def print_multiples_of_5_10(n):  # parameter1 is passing argument from variable n in outer scope
     numberToTest = 1  # numberToTest starts at 1 to exclude negative numbers and 0
     print("Printing all multiples of 5 or 10 less than %d:" % n)
@@ -18,8 +16,6 @@ print_multiples_of_5_10(30)  # With n = 30
 
 
 # Lab 4b
-
-
 def vowel_count(string):  # to keep vowelCounter and stringArrayNum local, default para is string
     vowelCounter = 0  # start at count 0
     stringArrayNum = 0  # start at string[0][Array=0]
@@ -82,8 +78,6 @@ grades_compute()
 
 
 # Lab 4d
-
-
 def compound_interest(numYears):  # calculate and print balance for each year
     INTEREST_RATE = 0.05
     INITIAL_BALANCE = 10000.00
