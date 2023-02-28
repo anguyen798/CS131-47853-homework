@@ -44,35 +44,41 @@ string = "Thomas"
 vowelCounter = vowel_count(string)  # call function, must explicitly pass variable "string" as parameter
 print(f"The string \"{string}\" has {vowelCounter} vowels.")  # using f string, \ to escape the double quotes
 
+
 # Lab 4c
-grades = []
-grade = 0
-passing_grades = 0
-failing_grades = 0
-sum_of_grades = 0
+def grades_compute():
+    # Set all starting values to empty list or 0
+    grades = []
+    grade = 0
+    passing_grades = 0
+    failing_grades = 0
+    sum_of_grades = 0
 
-while grade != -1:
-    grade = float(input("Enter a grade or -1 to finish: "))
-    if grade != -1:
-        grades.append(grade)
-        sum_of_grades += grade
-        if grade >= 60:
-            passing_grades += 1
-        else:
-            failing_grades += 1
+    while grade != -1:
+        grade = float(input("Enter a grade or -1 to finish: "))  # -1 is sentinel to end while loop
+        if grade != -1:
+            grades.append(grade)  # .append method to add grade to the grades list
+            sum_of_grades = sum_of_grades + grade
+            if grade >= 60:
+                passing_grades = passing_grades + 1
+            else:
+                failing_grades = failing_grades + 1
 
-if len(grades) == 0:
-    print("No grades were entered.")
-else:
-    avg_grade = sum_of_grades / len(grades)
-    max_grade = max(grades)
-    min_grade = min(grades)
+    if len(grades) == 0:  # if condition to show no grades were entered
+        print("No grades were entered.")
+    else:
+        avg_grade = sum_of_grades / len(grades)  # find the average of grades list
+        max_grade = max(grades)  # find min value in grades list
+        min_grade = min(grades)  # find max value in grades list
 
-    print(f"The average grade is {avg_grade:.2f}")
-    print(f"Number of passing grades is {passing_grades}")
-    print(f"Number of failing grades is {failing_grades}")
-    print(f"The maximum grade is {max_grade:.2f}")
-    print(f"The minimum grade is {min_grade:.2f}")
+        print("The average grade is %.2f" % avg_grade)
+        print("Number of passing grades is %d" % passing_grades)
+        print("Number of failing grades is %d" % failing_grades)
+        print("The maximum grade is %.2f" % max_grade)
+        print("The minimum grade is %.2f" % min_grade)
+
+
+grades_compute()
 
 
 # Lab 4d
@@ -100,53 +106,67 @@ numYears = int(input("Enter number of years: "))
 compound_interest(numYears)  # Using input(), example: 5 years
 compound_interest(2)  # 2 years
 
+
 # Lab 4e
-# Nested loop to print three rows and four columns of brackets
-for i in range(3):
-    for j in range(4):
-        print("[]", end="")
-    print()  # Start a new line after each row
+def bracket_print(rows=3, columns=4):  # keyword parameter, default rows = 3 and columns = 4
+    print("Printing %d rows and %d columns" % (rows, columns))
+    for row in range(rows):  # Range function no start parameter=start[0], stop at row 3 (array[3])
+        for column in range(columns):  # Outer-row-loop only runs after nested-column-loop completes
+            print("[]", end="")  # Print brackets on one row, parameter end="" instead of newline "\n" after every print
+        print()  # Go to next row after nested-column-loop runs and brackets are all finished printing on same row
+        # Then continue outer row for loop - print statement will execute at end of every interation of outer-row-loop
+
+
+bracket_print()  # Using default parameter values: 3 rows, 4 columns
+bracket_print(6, 2)  # Custom parameter value: 6 rows, 2 columns
+
 
 # Lab 4f
-n = int(input("Enter n: "))
+def multiplication_table(n):
+    print("-----" + "-" * 5 * n)  # Print dash seperator: 5 dashes and 5 dashes for each n
+    print("For a multiplication table of %d numbers:" % n)  # Description of how many numbers to multiply
+    print(" " * 2 + "|", end="")  # Print header row without newline, Start at 3 spaces, then run loop print on same row
+    for column_number_header in range(1, n + 1):  # Start at 1 (array[0]) and stop before number+1, n (array[n+1])
+        print("%5d" % column_number_header, end="")  # Pad 5 spaces between each number, after each print no newline
+    print()  # After for loop, print new row
+    print("-----" + "-" * 5 * n)  # Print dash seperator: 5 dashes and 5 dashes for each n
+    for row_number_header in range(1, n + 1):  # Print table: for loop = row header, nested for loop = multiplied values
+        print("%3d" % row_number_header, end="")  # Pad 3 spaces to start the row header then run
+        for multiplier in range(1, n + 1):  # Before each row header is created, nested-for-loop values on same line
+            print("%5d" % (row_number_header * multiplier), end="")  # Pad 5 spaces between each multiplied value
+        print()  # After nested-for-loop prints on same line, start a new row
 
-# Print the header
-print("   |", end="")
-for i in range(1, n + 1):
-    print("{0:5d}".format(i), end="")
-print()
 
-# Print the separator
-print("-------------------------------")
+n = int(input("Enter n: "))  # Using input, example: Multiplication table of 10 values, variable n shared with 4a
+multiplication_table(n)
+multiplication_table(5)  # Multiplication table of 5 values
 
-# Print the table
-for i in range(1, n + 1):
-    print("{0:3d}|".format(i), end="")
-    for j in range(1, n + 1):
-        print("{0:5d}".format(i * j), end="")
-    print()
 
 # Lab 4g
-string = input("Enter a string: ")
+def string_counter(string):
+    print("-" * 30)  # Header seperator print statement
+    print("Below are the character counts for the string %s:" % string)  # Description of string for function calls
+    # Set all count starting values to 0
+    letter_count = 0
+    digit_count = 0
+    symbol_count = 0
 
-lowercase_count = 0
-uppercase_count = 0
-digit_count = 0
-symbol_count = 0
+    for character in string:  # start with string[0] then end at string[len(string)]
+        if character.isalpha():  #
+            letter_count = letter_count + 1
+        elif character.isdigit():
+            digit_count = digit_count + 1
+        else:  # for characters that aren't letters or numbers such as !@#$%^&*()-_=+[{]}\|`~,<.>/?,...
+            symbol_count = symbol_count + 1
 
-for char in string:
-    if char.islower():
-        lowercase_count += 1
-    elif char.isupper():
-        uppercase_count += 1
-    elif char.isdigit():
-        digit_count += 1
-    else:
-        symbol_count += 1
+    print("Total counts of Chars = %d" % letter_count)  # Chars stand for letters
+    print("Total counts of Digits = %d" % digit_count)
+    print("Total counts of Symbol = %d" % symbol_count)
 
-print(f"Total counts of Chars = {lowercase_count + uppercase_count}")
-print(f"Total counts of Digits = {digit_count}")
-print(f"Total counts of Symbol = {symbol_count}")
+
+string = input("Enter a string: ")  # input(), example: string="Thomas1337"
+string_counter(string)
+string_counter("Anguyen798")
 
 # Lab 4h
 from random import randint  # import statement usually at top, import only randint module from random
