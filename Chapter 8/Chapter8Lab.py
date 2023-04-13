@@ -25,15 +25,68 @@ def main() :
     listUnionAB(listA, listB)
 
 # Lab 8b
+def intersections(dataType) :
+    dataType.lower()
+    #The definition checks for data types based on whether it is a string, integer or float
+    if dataType == "float" :
+        # If the float value is selected the user input is stored in two lists
+        myList = list(map(float, input("Enter elements in the list: ").strip().split()))
+        myList2 = list(map(float, input("Enter elements for the next list: ").strip().split()))
+        # A variable holds the duplicate values through the set and intersection functions being used
+        # Which then is returned as a list
+        dupes = list(set(myList).intersection(myList2))
+        print("List A is: ", myList)
+        print("List B is: ", myList2)
+        print("The intersection is ", dupes)
+    if dataType == "string" :
+        myList = list(map(str, input("Enter elements in the list: ").strip().split()))
+        myList2 = list(map(str, input("Enter elements for the next list: ").strip().split()))
+        dupes = list(set(myList).intersection(myList2))
+        print("List A is: ", myList)
+        print("List B is: ", myList2)
+        print("The intersection is ", dupes)
+    if dataType == "integer" :
+        myList = list(map(int, input("Enter elements in the list: ").strip().split()))
+        myList2 = list(map(int, input("Enter elements for the next list: ").strip().split()))
+        dupes = list(set(myList).intersection(myList2))
+        print("List A is: ", myList)
+        print("List B is: ", myList2)
+        print("The intersection is ", dupes)
+
+# The user input is placed in a variable
+# dataType = input("Value type for list: ")
+# The function finding the similarities between the two lists is called
+# intersections(dataType)
+
 
 # Lab 8c
-import lab8C
-string = "John Wick"
-lab8C.is_uniques(string)
-string = "Samantha Ahtnamas"
-lab8C.is_uniques(string)
-string = "The quick brown fox jumps over the lazy dog"
-lab8C.is_pangram(string)
-string = "The slow brown wolf jumps over the energetic coyote"
-lab8C.is_pangram(string)
+def main():
+    import lab8C
+    string = "John Wick"
+    lab8C.is_uniques(string)
+    string = "Samantha Ahtnamas"
+    lab8C.is_uniques(string)
+    string = "The quick brown fox jumps over the lazy dog"
+    lab8C.is_pangram(string)
+    string = "The slow brown wolf jumps over the energetic coyote"
+    lab8C.is_pangram(string)
+
+
+main()
+
 # Lab 8d
+# A dictionary is used and stored in a variable
+def lab8D() :
+    sortWord = {}
+    myWord = input("Enter a string: ")
+    # Using a for loop, each value in myWord is passed into sortWord
+    for char in myWord :
+        if char in sortWord :
+            # If a similarity is found the count is incremented
+            sortWord[char] += 1
+        else :
+            # If not then instance of the character at the index is kept
+            sortWord[char] = 1
+    print(str(sortWord))
+
+# lab8D()
