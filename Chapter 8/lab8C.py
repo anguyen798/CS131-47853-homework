@@ -6,7 +6,8 @@ def is_uniques(string):
         unique = True
     else :
         unique = False
-    print("The string \"%s\" has unique characters? %s" % (originalString, unique))
+    print("The string \"%s\" has unique characters? %s"
+          % (originalString, unique))
     return unique
 
 

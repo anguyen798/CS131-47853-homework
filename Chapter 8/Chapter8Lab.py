@@ -54,9 +54,9 @@ def intersections(dataType) :
         print("The intersection is ", dupes)
 
 # The user input is placed in a variable
-# dataType = input("Value type for list: ")
+#dataType = input("Value type for list: ")
 # The function finding the similarities between the two lists is called
-# intersections(dataType)
+#intersections(dataType)
 
 
 # Lab 8c
@@ -72,13 +72,12 @@ def main():
     lab8C.is_pangram(string)
 
 
-main()
+#main()
 
 # Lab 8d
 # A dictionary is used and stored in a variable
-def lab8D() :
+def main(myWord) :
     sortWord = {}
-    myWord = input("Enter a string: ")
     # Using a for loop, each value in myWord is passed into sortWord
     for char in myWord :
         if char in sortWord :
@@ -87,6 +86,15 @@ def lab8D() :
         else :
             # If not then instance of the character at the index is kept
             sortWord[char] = 1
-    print(str(sortWord))
+    print("The number of times each letter occurs in the string \"%s\" " 
+          % myWord)
+    # Print dictionary sortWord key, separate by space
+    for key in sortWord :
+        print("%s %3s" % (key, sortWord[key]))
+    # Function call separator
+    print("*" * 100)
 
-# lab8D()
+
+main("mathematician")
+# Ramanujan inspired function call
+main("m" * 100 + "athematicia" + "n" * 100)
