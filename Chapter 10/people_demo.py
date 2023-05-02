@@ -8,8 +8,6 @@ from people import *
 # name: John Smith
 # birth year: 1987
 # major: CS
-studentDemo = Student("John Smith", 1987, "CS")
-print(studentDemo.get_information())
 
 # Print information using the method defined in people.py module using 
 # the following format:
@@ -20,9 +18,16 @@ print(studentDemo.get_information())
 # name: Dave White
 # birth year: 1980
 # Salary: 80000
-instructorDemo = Instructor("Dave White", 1980, 80000)
-print(instructorDemo.get_information())
 
 # Print information using the method defined in people.py module using 
 # the following format:
 # Dave White, born in1980 has a $80000.00 salary
+
+def main():
+    studentdemo = Student("John Smith", 1987, "CS")
+    print(studentdemo.get_information())
+    instructordemo = Instructor("Dave White", 1980, 80000)
+    print(instructordemo.get_information())
+
+
+main()
