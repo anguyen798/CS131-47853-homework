@@ -13,7 +13,8 @@ class Student(Person):
         self._major = major
 
     def __repr__(self):
-        return "%s, born %d is a %s major" % (self._name, self._year, self._major)
+        return "%s, born %d is a %s major" \
+               % (self._name, self._year, self._major)
 
 
 class Instructor(Person):
@@ -22,4 +23,5 @@ class Instructor(Person):
         self._salary = salary
 
     def __repr__(self):
-        return "%s, born in %d has a $%.2f salary" % (self._name, self._year, self._salary)
+        return "%s, born in %d has a $%.2f salary" \
+               % (self._name, self._year, self._salary)
