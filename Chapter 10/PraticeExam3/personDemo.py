@@ -11,10 +11,10 @@ def main() :
     
 main()
 
+
+    # To avoid hardcoding variables if needed:
     #studentName = input("Enter the student first and last name: ")
     #studentBirthyear = input("Enter the student's birthyear in yyyy format")
     #studentMajor = input("Enter the student's major: ")
     #student = Student(studentName, studentBirthyear, studentMajor)
-    
-#instructorName = input("Enter the instructor's first and last name: ")
     
